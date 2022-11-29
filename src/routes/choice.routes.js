@@ -6,3 +6,5 @@ const router = Router()
 router.post("/choice", postChoice)
 router.get("/poll/:id/choice", getPollChoices)
 router.post("/choice/:id/vote", postChoiceVote)
+
+export default router

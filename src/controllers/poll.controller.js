@@ -5,5 +5,5 @@ export async function getPolls() {
 }
 
 export async function getResultPoll() {
-    
+
 }
