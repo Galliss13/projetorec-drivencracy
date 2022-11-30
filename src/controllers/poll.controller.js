@@ -1,5 +1,8 @@
+import { pollCollection } from "../database/db.js"
+
+
 export async function postPoll(req, res) {
-    const poll = re
+    res.send(200)
 } 
 
 export async function getPolls(req, res) {

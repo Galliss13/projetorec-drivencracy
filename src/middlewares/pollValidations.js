@@ -1,4 +1,4 @@
-import { pollSchema } from "../schemas/poll.model";
+import { pollSchema } from "../schemas/poll.model.js";
 
 export function pollSchemaValidation (req, res, next) {
     const poll = req.body

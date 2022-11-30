@@ -3,8 +3,8 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 dotenv.config()
 
-import pollRoutes from './routes/poll.routes'
-import choiceRoutes from './routes/choice.routes'
+import pollRoutes from './routes/poll.routes.js'
+import choiceRoutes from './routes/choice.routes.js'
 
 const app = express()
 app.use(cors())
