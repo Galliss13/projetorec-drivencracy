@@ -1,6 +1,6 @@
 import joi from 'joi'
 
 export const choiceSchema = joi.object({
-    title: joi.string().required(),
+    title: joi.required(),
     pollId: joi.string().required()
 })
