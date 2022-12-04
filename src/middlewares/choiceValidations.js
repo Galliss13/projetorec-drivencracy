@@ -26,7 +26,6 @@ export async function choiceExistenceValidation (req, res, next) {
         }
         //verifica se há outra choice de mesmo título
         const titleAlreadyExist = await choiceCollection.findOne({title: choice.title})
-        console.log(titleAlreadyExist);
         if (titleAlreadyExist) {
             return res.sendStatus(409)
         }
