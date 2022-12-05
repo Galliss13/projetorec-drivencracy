@@ -1,6 +1,7 @@
 import { ObjectId } from "mongodb";
 import { choiceCollection, pollCollection } from "../database/db.js";
 import { choiceSchema } from "../schemas/choice.model.js";
+import dayjs from "dayjs";
 
 export function choiceSchemaValidation (req, res, next) {
     const choice = req.body
@@ -19,11 +20,12 @@ export function choiceSchemaValidation (req, res, next) {
 export async function choiceExistenceValidation (req, res, next) {
     const choice = res.locals.choice
     try {
-        //verifica se se a poll existe
+        //verifica se a poll existe
         const pollExists = await pollCollection.findOne({_id: ObjectId(choice.pollId)})
         if (!pollExists) {
             return res.sendStatus(404)
         }
+
         //verifica se há outra choice de mesmo título
         const titleAlreadyExist = await choiceCollection.findOne({title: choice.title})
         if (titleAlreadyExist) {
