@@ -26,19 +26,20 @@ export async function choiceWithMoreVotes(req, res, next) {
     let numberVotes = 0
     let bestChoice
     try {
+
         let cont = 0
         const pollChoices = await choiceCollection.find({pollId: id}).toArray()
+
         pollChoices.forEach(async choice => {
             const choiceVotes = await voteCollection.find({choiceId: ObjectId(choice._id).toString()}).toArray()
             cont += 1
 
-            console.log(choiceVotes.length > numberVotes)
+            //verifica se o número de votos da escolha é maior que um anterior
             if (choiceVotes.length > numberVotes) {
                 numberVotes = choiceVotes.length
                 bestChoice = choice.title
-                console.log(numberVotes, bestChoice)
             }
-            console.log(cont, pollChoices.length)
+            //se chega ao final da pollChoices, decide o vencedor e envia para o controller
             if (cont === pollChoices.length) {
                 const winner = {
                     title: bestChoice,

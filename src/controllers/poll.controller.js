@@ -29,7 +29,6 @@ export async function getResultPoll(req, res) {
     const winner = res.locals.winner
     try {
         const poll = await pollCollection.findOne({_id: ObjectId(id)})
-        console.log(winner);
 
         return res.status(200).send({
             _id: ObjectId(id),
@@ -45,12 +44,3 @@ export async function getResultPoll(req, res) {
 
 }
 
-//{
-//	_id: "54759eb3c090d83494e2d222",
-//	title: "Qual a sua linguagem de programação favorita?"
-//	expireAt: "2022-02-14 01:00",
-//	result : {
-//		title: "Javascript",
-//		votes: 487
-//	}
-//}

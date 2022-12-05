@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import { ObjectId } from "mongodb";
 import { choiceCollection, voteCollection } from "../database/db.js"
 
 export async function postChoice(req, res) {
