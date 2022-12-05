@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { ObjectId } from "mongodb";
 import { choiceCollection, voteCollection } from "../database/db.js"
 
@@ -30,7 +31,7 @@ export async function postChoiceVote(req, res) {
     const {id} = req.params
     try {
         await voteCollection.insertOne({
-            createdAt:'DATA QUE FOI CRIADO',
+            createdAt: dayjs().format('YYYY-MM-DD HH:mm'),
             choiceId: id
         })
         res.sendStatus(201)

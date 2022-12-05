@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { choiceCollection } from "../database/db";
+import { choiceCollection } from "../database/db.js";
 
 export async function voteExistenceValidation (req, res, next) {
     const {id} = req.params
